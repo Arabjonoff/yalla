@@ -21,9 +21,9 @@ class _ButtonWidgetState extends State<ButtonWidget> {
       child: Container(
         margin: widget.margin,
         width: MediaQuery.of(context).size.width,
-        height: 70,
+        height: 57,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(15),
           color: AppColor.orange,
         ),
         child: Center(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yalla/src/utils/utils.dart';
 import 'package:yalla/src/widget/button/button_widget.dart';
 
 import '../../colors/colors.dart';
@@ -17,6 +18,9 @@ TextEditingController _passwordController = TextEditingController();
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
+
+    double w = Utils.getWidth(context);
+    double h = Utils.getWidth(context);
     return Scaffold(
       backgroundColor: AppColor.grey,
       body: Column(
@@ -25,7 +29,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: ListView(
               children: [
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 32),
+                  margin:  EdgeInsets.symmetric(horizontal: 32*w),
                   width: MediaQuery.of(context).size.width,
                   child: TextField(
                     controller: _emailController,
@@ -37,7 +41,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 46,
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 32),
+                  margin:  EdgeInsets.symmetric(horizontal: 32*w),
                   width: MediaQuery.of(context).size.width,
                   child: TextField(
                     controller: _passwordController,
@@ -48,7 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ],
             ),
           ),
-          ButtonWidget(onTap: (){}, text: "Ro'yhatdan o'tish", margin: const EdgeInsets.symmetric(horizontal: 32,vertical: 41))
+          ButtonWidget(onTap: (){}, text: "Ro'yhatdan o'tish", margin:  EdgeInsets.symmetric(horizontal: 32*w,vertical: 32*w))
         ],
       ),
     );

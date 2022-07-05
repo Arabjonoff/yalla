@@ -6,9 +6,9 @@ class ProductsModel {
   List<Response> response;
 
   factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
-    response: List<Response>.from(json["response"].map((x) => Response.fromJson(x))),
-  );
-
+        response: List<Response>.from(
+            json["response"].map((x) => Response.fromJson(x))),
+      );
 }
 
 class Response {
@@ -33,17 +33,17 @@ class Response {
   String info;
 
   factory Response.fromJson(Map<String, dynamic> json) => Response(
-    id: json["id"],
-    category: Category.fromJson(json["category"]),
-    name: json["name"],
-    image: json["image"],
-    saleType: json["sale_type"],
-    price: json["price"],
-    priceDiscounted: json["price_discounted"] == null ? null : json["price_discounted"],
-    info: json["info"],
-  );
-
-
+        id: json["id"] ?? 0,
+        category: json["category"] == null
+            ? Category.fromJson({})
+            : Category.fromJson(json["category"]),
+        name: json["name"] ?? "",
+        image: json["image"] ?? "",
+        saleType: json["sale_type"] ?? "",
+        price: json["price"] ?? 0,
+        priceDiscounted: json["price_discounted"] ?? 0,
+        info: json["info"] ?? 0,
+      );
 }
 
 class Category {
@@ -56,8 +56,7 @@ class Category {
   String name;
 
   factory Category.fromJson(Map<String, dynamic> json) => Category(
-    id: json["id"],
-    name: json["name"],
-  );
-
+        id: json["id"]??0,
+        name: json["name"]??"",
+      );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla/src/colors/colors.dart';
 import 'package:yalla/src/ui/drawer/drawerhome.dart';
-import 'package:yalla/src/ui/menu/main_screen.dart';
+import 'package:yalla/src/utils/utils.dart';
 import 'package:yalla/src/widget/button/button_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,6 +17,9 @@ TextEditingController _passwordController = TextEditingController();
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+
+    double w = Utils.getWidth(context);
+    double h = Utils.getWidth(context);
     return Scaffold(
       backgroundColor: AppColor.grey,
       body: Column(
@@ -56,13 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return DrawerHomeScreen();
+                      return const DrawerHomeScreen();
                     },
                   ),
                 );
               },
               text: 'Kirish',
-              margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 41))
+              margin:  EdgeInsets.symmetric(horizontal: 32*w, vertical: 32*w))
         ],
       ),
     );

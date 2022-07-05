@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yalla">
-   <application
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- Add this -->
+    <application
         android:label="yalla"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

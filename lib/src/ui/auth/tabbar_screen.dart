@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yalla/src/colors/colors.dart';
 import 'package:yalla/src/ui/auth/login_screen.dart';
 import 'package:yalla/src/ui/auth/register_screen.dart';
+import 'package:yalla/src/utils/utils.dart';
 
 class TapBarScreen extends StatefulWidget {
   const TapBarScreen({Key? key}) : super(key: key);
@@ -13,6 +14,8 @@ class TapBarScreen extends StatefulWidget {
 class _TapBarScreenState extends State<TapBarScreen> {
   @override
   Widget build(BuildContext context) {
+    double w = Utils.getWidth(context);
+    double h = Utils.getWidth(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -25,13 +28,13 @@ class _TapBarScreenState extends State<TapBarScreen> {
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20))),
-              height: 381,
+              height: 381*h*w,
               child: Column(
                 children: [
                   Expanded(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(48.0),
+                        padding: EdgeInsets.all(48*h),
                         child: Image.asset('assets/images/yalla_logo.png'),
                       ),
                     ),
