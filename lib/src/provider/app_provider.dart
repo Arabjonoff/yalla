@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:yalla/src/model/httpResult/http_result.dart';
 import 'package:http/http.dart' as http;
 class AppProvider{
-  static const baseUrl = "https://fastfood.stemedu.uz/api/";
-
+  String  baseUrl = "https://fastfood.stemedu.uz/api/";
   Future<HttpResult> _postRequest(String url,body) async{
     print(url);
     print(body);
@@ -40,7 +39,19 @@ class AppProvider{
   }
 
   Future<HttpResult> getProduct(int id) async {
-    String url = baseUrl+'products/';
+    String url = baseUrl+'products/$id';
     return await _getRequest(url);
   }
+
+
+  Future<HttpResult> getCategoryId(int id) async {
+    String url = baseUrl+'category/$id';
+    return await _getRequest(url);
+  }
+
+  Future<HttpResult> getCategory() async {
+    String url = baseUrl + 'categories/';
+    return await _getRequest(url);
+  }
+
 }

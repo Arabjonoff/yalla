@@ -1,21 +1,21 @@
 class CategoryModel {
   CategoryModel({
-    required this.categoriesResult,
+    required this.results,
   });
 
-  List<Category> categoriesResult;
+  List<CategoryResult> results;
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
-        categoriesResult: json["categories"] == null?<Category>[]: List<Category>.from(
+        results: json["categories"] == null?<CategoryResult>[]: List<CategoryResult>.from(
           json["categories"].map(
-            (x) => Category.fromJson(x),
+            (x) => CategoryResult.fromJson(x),
           ),
         ),
       );
 }
 
-class Category {
-  Category({
+class CategoryResult {
+  CategoryResult({
     required this.id,
     required this.name,
   });
@@ -23,7 +23,7 @@ class Category {
   int id;
   String name;
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
+  factory CategoryResult.fromJson(Map<String, dynamic> json) => CategoryResult(
         id: json["id"] ?? 0,
         name: json["name"] ?? "",
       );
